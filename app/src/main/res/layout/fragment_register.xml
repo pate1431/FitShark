@@ -5,7 +5,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#8579747A">
 
         <TextView
             android:id="@+id/textView"
@@ -86,13 +87,13 @@
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_width="408dp"
-            android:layout_height="174dp"
+            android:layout_width="189dp"
+            android:layout_height="157dp"
+            android:layout_marginTop="32dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-             />
+            app:srcCompat="@drawable/register" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
