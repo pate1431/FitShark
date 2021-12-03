@@ -10,64 +10,68 @@
 
         <Button
             android:id="@+id/btnViewLogs"
-            android:layout_width="300sp"
-            android:layout_height="60sp"
+            android:layout_width="313dp"
+            android:layout_height="69dp"
 
+            android:layout_marginStart="55dp"
+            android:layout_marginEnd="55dp"
+            android:layout_marginBottom="13dp"
             android:shadowColor="#100C0C"
             android:text="View Logs"
             android:textAlignment="center"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btnCalculateBMI"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.828" />
+            app:layout_constraintTop_toBottomOf="@+id/btnAddLog" />
 
         <Button
             android:id="@+id/btnCalculateBMI"
-            android:layout_width="300sp"
-            android:layout_height="60sp"
+            android:layout_width="317dp"
+            android:layout_height="63dp"
 
+            android:layout_marginStart="55dp"
+            android:layout_marginEnd="55dp"
+            android:layout_marginBottom="84dp"
             android:text="Calculate BMI"
             android:textAlignment="center"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.707" />
+            app:layout_constraintTop_toBottomOf="@+id/btnViewLogs" />
 
         <Button
             android:id="@+id/btnAddLog"
-            android:layout_width="299dp"
-            android:layout_height="67dp"
+            android:layout_width="317dp"
+            android:layout_height="66dp"
 
-            android:layout_marginBottom="282dp"
+            android:layout_marginStart="47dp"
+            android:layout_marginEnd="47dp"
+            android:layout_marginBottom="19dp"
             android:text="Add log"
             android:textAlignment="center"
             android:textSize="18sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btnViewLogs"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4"
-            app:layout_constraintVertical_bias="0.579" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
         <ImageView
             android:id="@+id/imageView4"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="71dp"
+            android:layout_marginStart="64dp"
             android:layout_marginTop="61dp"
-            android:layout_marginEnd="71dp"
-            android:layout_marginBottom="113dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="37dp"
             app:layout_constraintBottom_toTopOf="@+id/btnAddLog"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/logo" />
+            app:srcCompat="@drawable/logo"
+            tools:srcCompat="@drawable/logo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
