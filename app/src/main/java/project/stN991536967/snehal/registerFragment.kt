@@ -1,59 +1,63 @@
 package project.stN991536967.snehal
 
 import android.os.Bundle
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import com.google.android.material.navigation.NavigationView
+import project.stN991536967.snehal.Database.fitDatabase
+import project.stN991536967.snehal.Entity.LoginEntity
+import project.stN991536967.snehal.databinding.FragmentRegisterBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [registerFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class registerFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+        val binding = DataBindingUtil.inflate<FragmentRegisterBinding>(inflater,
+            R.layout.fragment_register,container,false)
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_register, container, false)
-    }
+        val navigationView = requireActivity().findViewById<NavigationView>(R.id.navbar)
+        val menu = navigationView.menu
+        val target: MenuItem = menu.findItem(R.id.registerFragment)
+        target.setVisible(true)
+        val target2: MenuItem = menu.findItem(R.id.loginFragment)
+        target2.setVisible(true)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment registerFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            registerFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+        /*val target7: MenuItem = menu.findItem(R.id.articleFragment)
+        target7.setVisible(false)*/
+
+
+        val application = requireNotNull(this.activity).application
+        val loginDao = fitDatabase.getInstance(application).loginDao()
+
+        binding.btnRegister.setOnClickListener {
+            if(binding.editTextName.text.trim().isEmpty()  ||  binding.editTextEmail.text.trim().isEmpty() ||
+                binding.editTextPass.text.trim().isEmpty()
+                    ) {
+                Toast.makeText(activity, "Enter Valid Information", Toast.LENGTH_SHORT).show()
             }
+            else if (!Patterns.EMAIL_ADDRESS.matcher(binding.editTextEmail.text.toString()).matches()){
+                Toast.makeText(activity, "Enter valid email address!", Toast.LENGTH_SHORT).show()
+            }
+            /*else if (loginDao.exists(binding.editTextEmail.text.trim().toString()) == true){
+                Toast.makeText(activity, "Email is already registered!", Toast.LENGTH_SHORT).show()
+            }*/
+            else if (binding.checkBoxTerms.isChecked!=true) {
+                Toast.makeText(activity, "Please Agree to Terms", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                val newUser = LoginEntity(0, binding.editTextName.text.toString(), binding.editTextEmail.text.toString(), binding.editTextPass.text.toString())
+                loginDao.userRegister(newUser)
+                view?.findNavController()?.navigate(R.id.action_registerFragment_to_welcomeFragment)
+            }
+        }
+        return binding.root
     }
 }
