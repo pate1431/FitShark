@@ -1,59 +1,115 @@
 package project.stN991536967.snehal
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
+import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import project.stN991536967.snehal.Entity.ExerciseEntity
+import androidx.databinding.DataBindingUtil
+import com.google.android.material.navigation.NavigationView
+import project.stN991536967.snehal.Database.fitDatabase
+import project.stN991536967.snehal.databinding.FragmentAddlogsBinding
+import java.text.SimpleDateFormat
+import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [addlogsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class addlogsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
-    override fun onCreateView(
+        override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_addlogs, container, false)
+
+        var calender: Calendar = Calendar.getInstance()
+        val binding: FragmentAddlogsBinding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_addlogs,
+            container,
+            false
+        )
+        val navigationView = requireActivity().findViewById<NavigationView>(R.id.navbar)
+        val menu = navigationView.menu
+        val target: MenuItem = menu.findItem(R.id.registerFragment)
+        target.setVisible(true)
+        val target2: MenuItem = menu.findItem(R.id.loginFragment)
+        target2.setVisible(true)
+
+
+
+
+        binding.input1.setHint("Distance")
+        binding.input2.setHint("Speed")
+        binding.input3.visibility = View.GONE
+
+
+
+        binding.dateField.setOnClickListener {
+
+            val mYear = calender.get(Calendar.YEAR)
+            val mMonth = calender.get(Calendar.MONTH)
+            val mDay = calender.get(Calendar.DAY_OF_MONTH)
+
+
+            val datePickerDialog = DatePickerDialog(
+                requireContext(),
+                DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                    calender.set(year, monthOfYear, dayOfMonth)
+                    val calendar: Calendar = Calendar.getInstance()
+                    val hour = calendar.get(Calendar.HOUR)
+                    val minute = calendar.get(Calendar.MINUTE)
+                    val timePickerDialog = TimePickerDialog(
+                        requireContext(), TimePickerDialog.OnTimeSetListener { timePicker, i, i2 ->
+                            val myHour = i
+                            val myMinute = i2
+                            val nameMonth = DateFormat.format("MMMM", calender) as String
+
+                            val time = myHour.toString() + ":" +myMinute
+
+                            val date12Format = SimpleDateFormat("hh:mm a")
+
+                            val date24Format = SimpleDateFormat("HH:mm")
+
+                            binding.dateField.text = nameMonth + " " + dayOfMonth + ", " + year + "    " +
+                                    date12Format.format(date24Format.parse(time))
+
+                        }, hour, minute,
+                        DateFormat.is24HourFormat(requireContext())
+                    )
+                    timePickerDialog.show()
+                },
+                mYear,
+                mMonth,
+                mDay
+            )
+            datePickerDialog.show()
+        }
+
+        val application = requireNotNull(this.activity).application
+        val exerciseDao = fitDatabase.getInstance(application).exerciseDao()
+
+        binding.btnAdd.setOnClickListener {
+            if(binding.input1.text.isEmpty() || binding.input2.text.isEmpty() || binding.dateField.text.isEmpty())
+            {
+                Toast.makeText(view?.context,"Please Enter Valid Information", Toast.LENGTH_SHORT)
+            }
+            else{
+                val newExercise = ExerciseEntity(0, UserLoginCheck.user.id,binding.dateField.text.toString(),binding.input1.text.toString().toFloat(), binding.input2.text.toString().toFloat())
+                exerciseDao.insert(newExercise)
+            }
+        }
+
+
+
+
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment addlogsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            addlogsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }
+
+
