@@ -1,67 +1,114 @@
 package project.stN991536967.snehal
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
+import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.activityViewModels
+import android.widget.Toast
 import project.stN991536967.snehal.Entity.ExerciseEntity
-import project.stN991536967.snehal.viewModel.AddLogViewModel
-import project.stN991536967.snehal.viewModel.AddLogViewModelFactory
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
+import com.google.android.material.navigation.NavigationView
+import project.stN991536967.snehal.Database.fitDatabase
 import project.stN991536967.snehal.databinding.FragmentAddlogsBinding
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class addlogsFragment : Fragment() {
-
-    private val viewModel: AddLogViewModel by activityViewModels{
-        AddLogViewModelFactory(
-            (activity?.application as fitsharkApplication).database.exerciseDao()
-        )
-    }
-    lateinit var exercise:ExerciseEntity
-
-
-    private var _binding: FragmentAddlogsBinding? = null
-    private val binding get() = _binding!!
-
-    /*private fun bind(exercise: ExerciseEntity){
-        binding.apply {
-            userID
-        }
-    }*/
-    private fun isEntryValid(): Boolean {
-        return viewModel.isEntryValid(
-            binding.dateField.text.toString(),
-            binding.input1.text.toString(),
-            binding.input2.text.toString()
-        )
-
-    }
-    private fun addNewItem() {
-        if (isEntryValid()) {
-            viewModel.addNewExercise(
-                UserLoginCheck.user.id,
-                binding.dateField.text.toString(),
-                binding.input1.text.toString(),
-                binding.input2.text.toString(),)
-        }
-        view?.findNavController()?.navigate(R.id.action_addlogsFragment_to_viewlogFragment)
-    }
-
-    override fun onCreateView(
+        override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentAddlogsBinding.inflate(inflater, container, false)
+        var calender: Calendar = Calendar.getInstance()
+        val binding: FragmentAddlogsBinding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_addlogs,
+            container,
+            false
+        )
+        val navigationView = requireActivity().findViewById<NavigationView>(R.id.navbar)
+        val menu = navigationView.menu
+        val target: MenuItem = menu.findItem(R.id.registerFragment)
+        target.setVisible(true)
+        val target2: MenuItem = menu.findItem(R.id.loginFragment)
+        target2.setVisible(true)
+
+
+
+
+        binding.input1.setHint("Distance")
+        binding.input2.setHint("Speed")
+        binding.input3.visibility = View.GONE
+
+
+
+        binding.dateField.setOnClickListener {
+
+            val mYear = calender.get(Calendar.YEAR)
+            val mMonth = calender.get(Calendar.MONTH)
+            val mDay = calender.get(Calendar.DAY_OF_MONTH)
+
+
+            val datePickerDialog = DatePickerDialog(
+                requireContext(),
+                DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+                    calender.set(year, monthOfYear, dayOfMonth)
+                    val calendar: Calendar = Calendar.getInstance()
+                    val hour = calendar.get(Calendar.HOUR)
+                    val minute = calendar.get(Calendar.MINUTE)
+                    val timePickerDialog = TimePickerDialog(
+                        requireContext(), TimePickerDialog.OnTimeSetListener { timePicker, i, i2 ->
+                            val myHour = i
+                            val myMinute = i2
+                            val nameMonth = DateFormat.format("MMMM", calender) as String
+
+                            val time = myHour.toString() + ":" +myMinute
+
+                            val date12Format = SimpleDateFormat("hh:mm a")
+
+                            val date24Format = SimpleDateFormat("HH:mm")
+
+                            binding.dateField.text = nameMonth + " " + dayOfMonth + ", " + year + "    " +
+                                    date12Format.format(date24Format.parse(time))
+
+                        }, hour, minute,
+                        DateFormat.is24HourFormat(requireContext())
+                    )
+                    timePickerDialog.show()
+                },
+                mYear,
+                mMonth,
+                mDay
+            )
+            datePickerDialog.show()
+        }
+
+        val application = requireNotNull(this.activity).application
+        val exerciseDao = fitDatabase.getInstance(application).exerciseDao()
+
+        binding.btnAdd.setOnClickListener {
+            if(binding.input1.text.isEmpty() || binding.input2.text.isEmpty() || binding.dateField.text.isEmpty())
+            {
+                Toast.makeText(view?.context,"Please Enter Valid Information", Toast.LENGTH_SHORT)
+            }
+            else{
+                val newExercise = ExerciseEntity(0, UserLoginCheck.user.id,binding.dateField.text.toString(),binding.input1.text.toString().toFloat(), binding.input2.text.toString().toFloat())
+                exerciseDao.insert(newExercise)
+            }
+        }
+
+
+
+
+
         return binding.root
     }
-
 
 }
 

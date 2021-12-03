@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "exercise")
 data class ExerciseEntity (
     @PrimaryKey(autoGenerate = true)
-    var id: Long=0,
+    var id: Long,
     @ColumnInfo(name = "userID")
     var userID: Long,
     @ColumnInfo(name = "date")

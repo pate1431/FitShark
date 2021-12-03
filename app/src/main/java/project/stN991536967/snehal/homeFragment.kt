@@ -1,45 +1,63 @@
 package project.stN991536967.snehal
 
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
+import com.google.android.material.navigation.NavigationView
+import project.stN991536967.snehal.databinding.FragmentHomeBinding
 
 
 class homeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+
+        val binding = DataBindingUtil.inflate<FragmentHomeBinding>(
+            inflater,
+            R.layout.fragment_home, container, false
+        )
+
+        val navigationView = requireActivity().findViewById<NavigationView>(R.id.navbar)
+        val menu = navigationView.menu
+        val target: MenuItem = menu.findItem(R.id.registerFragment)
+        target.setVisible(true)
+        val target2: MenuItem = menu.findItem(R.id.loginFragment)
+        target2.setVisible(true)
+
+        binding.btnCalculateBMI.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_homeFragment_to_bmiFragment)
+        }
+
+        binding.btnAddLog.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_homeFragment_to_addlogsFragment)
+        }
+
+        binding.btnViewLogs.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_homeFragment_to_viewlogFragment)
+        }
+/*
+        binding.buttonArticle?.setOnClickListener {
+            view?.findNavController()?.navigate(R.id.action_appFragment_to_articleFragment)
+        }*/
+
+        setHasOptionsMenu(true)
+
+        return binding.root
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.options, menu)
     }
 
-    companion object {
-
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            homeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return NavigationUI.onNavDestinationSelected(
+            item!!, requireView().findNavController()
+        ) || super.onOptionsItemSelected(item)
     }
+
 }

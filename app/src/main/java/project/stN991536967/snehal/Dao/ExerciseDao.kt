@@ -15,7 +15,9 @@ interface ExerciseDao {
     @Query("SELECT * FROM exercise where userID=:userID")
     fun getAll(userID: Long): List<ExerciseEntity>
 
+
+
     @Update(onConflict = OnConflictStrategy.REPLACE)
-    fun update(exercise: ExerciseEntity)
+    fun update (exercise: ExerciseEntity)
 
 }
