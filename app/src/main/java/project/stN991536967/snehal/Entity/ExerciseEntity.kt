@@ -14,8 +14,7 @@ data class ExerciseEntity (
     var exerciseName: String,
     @ColumnInfo(name = "date")
     var date: String,
-    @ColumnInfo(name = "distance")
-    var distance: Float,
-    @ColumnInfo(name = "speed")
-    var speed: Float
+    @ColumnInfo(name = "Description")
+    var description: String,
+
 )

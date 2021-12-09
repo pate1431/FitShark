@@ -21,4 +21,8 @@ interface ExerciseDao {
     @Update(onConflict = OnConflictStrategy.REPLACE)
     fun update (exercise: ExerciseEntity)
 
+    @Query("SELECT * FROM exercise WHERE id=:logId")
+    fun get(logId: Long) : ExerciseEntity
+
+
 }

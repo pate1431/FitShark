@@ -1,6 +1,8 @@
 package project.stN991536967.snehal.RecycleView
 
 import android.app.AlertDialog
+import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +10,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import project.stN991536967.snehal.Database.fitDatabase
 import project.stN991536967.snehal.Entity.ExerciseEntity
@@ -20,13 +23,21 @@ class MyRecyclerViewExerciseLog (public var sampleList:MutableList<ExerciseEntit
         val date: TextView = itemView.findViewById(R.id.dateLogs)
         val exerciseType: TextView = itemView.findViewById(R.id.exerciseType)
         val textView1: TextView = itemView.findViewById(R.id.output1)
-        val textView2 : TextView = itemView.findViewById(R.id.output2)
+
         val btnDelete: ImageView = itemView.findViewById(R.id.btnDelete)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.excercise_list,parent,false);
         val viewHolder = ViewHolder(itemView)
+
+        itemView.setOnClickListener{v->
+            Toast.makeText(itemView.context,"You have selected ",Toast.LENGTH_SHORT).show()
+            var bundle = Bundle()
+            bundle.putLong("exerciseId",sampleList[viewHolder.adapterPosition].id)
+
+            v.findNavController()?.navigate(R.id.action_viewlogFragment_to_updateFragment,bundle);
+        }
         return viewHolder;
 
     }
@@ -35,9 +46,7 @@ class MyRecyclerViewExerciseLog (public var sampleList:MutableList<ExerciseEntit
         val currentItem = sampleList[position]
         holder.exerciseType.text= currentItem.exerciseName
        holder.date.text = currentItem.date
-        holder.textView1.text = "" +currentItem.speed
-        holder.textView2.text = "" +currentItem.distance
-
+        holder.textView1.text = "" +currentItem.description
         holder.btnDelete.setOnClickListener {
             s->
             val confirmation= AlertDialog.Builder(s.context)
