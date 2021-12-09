@@ -34,9 +34,14 @@ class loginFragment : Fragment() {
         target.setVisible(true)
         val target2: MenuItem = menu.findItem(R.id.loginFragment)
         target2.setVisible(true)
-
-        /*val target7: MenuItem = menu.findItem(R.id.articleFragment)
-        target7.setVisible(false)*/
+        val first: MenuItem = menu.findItem(R.id.addlogsFragment)
+        first.setVisible(false)
+        val second: MenuItem = menu.findItem(R.id.viewlogFragment)
+        second.setVisible(false)
+        val third: MenuItem = menu.findItem(R.id.bmiFragment)
+        third.setVisible(false)
+        val forth: MenuItem = menu.findItem(R.id.welcomeFragment)
+        forth.setVisible(false)
 
         val application = requireNotNull(this.activity).application
         val loginDao = fitDatabase.getInstance(application).loginDao()
