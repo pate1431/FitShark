@@ -93,12 +93,12 @@ class addlogsFragment : Fragment() {
         val exerciseDao = fitDatabase.getInstance(application).exerciseDao()
 
         binding.btnAdd.setOnClickListener {
-            if(binding.input1.text.isEmpty() || binding.input2.text.isEmpty() || binding.dateField.text.isEmpty())
+            if(binding.input1.text.isEmpty() || binding.editTextExercise.text.isEmpty() || binding.input2.text.isEmpty() || binding.dateField.text.isEmpty())
             {
                 Toast.makeText(view?.context,"Please Enter Valid Information", Toast.LENGTH_SHORT)
             }
             else{
-                val newExercise = ExerciseEntity(0, UserLoginCheck.user.id,binding.dateField.text.toString(),binding.input1.text.toString().toFloat(), binding.input2.text.toString().toFloat())
+                val newExercise = ExerciseEntity(0, UserLoginCheck.user.id,binding.editTextExercise.text.toString(),binding.dateField.text.toString(),binding.input1.text.toString().toFloat(), binding.input2.text.toString().toFloat())
                 exerciseDao.insert(newExercise)
             }
         }

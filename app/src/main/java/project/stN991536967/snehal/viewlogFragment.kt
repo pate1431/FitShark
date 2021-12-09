@@ -39,18 +39,10 @@ class viewlogFragment : Fragment() {
         val list = database.exerciseDao().getAll(UserLoginCheck.user.id)
         binding.recyclerView.adapter = MyRecyclerViewExerciseLog(list.toMutableList())
 
-
-        // Inflate the layout for this fragment
         return binding.root
     }
 
-   /* override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
-        val adapter = ExerciseListAdapter{
-            view?.findNavController()?.navigate(R.id.action_)
-        }
-    }*/
 
 
 }
