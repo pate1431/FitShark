@@ -9,11 +9,20 @@
         android:id="@+id/loginFragment"
         android:title="Login" />
     <item
+        android:id="@+id/about"
+        android:title="About" />
+    <item
+        android:id="@+id/help"
+        android:title="Help" />
+    <item
         android:id="@+id/addlogsFragment"
-        android:title="Add Logs" />
+        android:title="Add Logs"
+        android:visible="false" />
     <item
         android:id="@+id/viewlogFragment"
-        android:title="View Logs" />
+        android:enabled="false"
+        android:title="View Logs"
+        android:visible="false" />
     <item
         android:id="@+id/bmiFragment"
         android:title="BMI" />

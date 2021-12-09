@@ -2,4 +2,31 @@
     <string name="app_name">FitShark_FinalProject</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="about">FitShark Application \nThis application is build for Fitness freak people
+            who wants to exercise even staying at home. They can have everyday execise log pre planned
+        and can edit them accordingly.
+        \n\n
+        Submission Date: 2021-12-09
+        Student Name: \n
+\n        Snehal Patel - 991536967
+  \n      Aman Jasani - 991516032
+    \n    Om Patel - 991541635
+
+    </string>
+    <string name="help">
+        In the Application user will have to create their account and login with it.\n
+        Here they will have 3 options in the screen.
+        \n\t\tAdd Exercise Log
+        \n Onclicking you will be redirect to other screen where you will create a exercise log
+        and add an exercise with time and some description to it. As soon as you click on the add button
+        you will be send to View Exercise log.
+        \n\t\tView Exercise Log
+        \n On clicking you will be redirect to other screen which is View Exercise log screen.
+         Here you will be able to delete,view or edit any log created by you. To edit just click on the item anywhere
+        and to delete click on the delete or cross button provided there.
+        \n\t\tBMI Calculator
+        \n On Clicking you will be redirect to Bmi Calculator screen. Here you can calculate you BMI score
+         and get feedback about your score.
+
+    </string>
 </resources>

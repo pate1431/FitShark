@@ -90,6 +90,12 @@
         <action
             android:id="@+id/action_welcomeFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_help"
+            app:destination="@id/help" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_about"
+            app:destination="@id/about" />
     </fragment>
     <fragment
         android:id="@+id/updateFragment"
@@ -98,5 +104,21 @@
         <action
             android:id="@+id/action_updateFragment_to_viewlogFragment"
             app:destination="@id/viewlogFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/about"
+        android:name="project.stN991536967.snehal.About"
+        android:label="About" >
+        <action
+            android:id="@+id/action_about_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/help"
+        android:name="project.stN991536967.snehal.Help"
+        android:label="Help" >
+        <action
+            android:id="@+id/action_help_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
     </fragment>
 </navigation>

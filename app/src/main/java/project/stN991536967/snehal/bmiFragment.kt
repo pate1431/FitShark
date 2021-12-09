@@ -19,12 +19,17 @@ class bmiFragment : Fragment() {
                                         savedInstanceState: Bundle?): View? {
         var binding = DataBindingUtil.inflate<FragmentBmiBinding>(inflater,
             R.layout.fragment_bmi,container,false)
+
         val navigationView = requireActivity().findViewById<NavigationView>(R.id.navbar)
         val menu = navigationView.menu
         val target: MenuItem = menu.findItem(R.id.registerFragment)
         target.setVisible(false)
         val target2: MenuItem = menu.findItem(R.id.loginFragment)
         target2.setVisible(false)
+        val target3: MenuItem = menu.findItem(R.id.about)
+        target3.setVisible(false)
+        val target4: MenuItem = menu.findItem(R.id.help)
+        target4.setVisible(false)
         val first: MenuItem = menu.findItem(R.id.addlogsFragment)
         first.setVisible(true)
         val second: MenuItem = menu.findItem(R.id.viewlogFragment)

@@ -26,17 +26,21 @@ class registerFragment : Fragment() {
         val navigationView = requireActivity().findViewById<NavigationView>(R.id.navbar)
         val menu = navigationView.menu
         val target: MenuItem = menu.findItem(R.id.registerFragment)
-        target.setVisible(false)
+        target.setVisible(true)
         val target2: MenuItem = menu.findItem(R.id.loginFragment)
-        target2.setVisible(false)
+        target2.setVisible(true)
+        val target3: MenuItem = menu.findItem(R.id.about)
+        target3.setVisible(true)
+        val target4: MenuItem = menu.findItem(R.id.help)
+        target4.setVisible(true)
         val first: MenuItem = menu.findItem(R.id.addlogsFragment)
-        first.setVisible(true)
+        first.setVisible(false)
         val second: MenuItem = menu.findItem(R.id.viewlogFragment)
-        second.setVisible(true)
+        second.setVisible(false)
         val third: MenuItem = menu.findItem(R.id.bmiFragment)
-        third.setVisible(true)
+        third.setVisible(false)
         val forth: MenuItem = menu.findItem(R.id.welcomeFragment)
-        forth.setVisible(true)
+        forth.setVisible(false)
 
 
         val application = requireNotNull(this.activity).application
