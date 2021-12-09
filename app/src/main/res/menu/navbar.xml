@@ -8,4 +8,17 @@
     <item
         android:id="@+id/loginFragment"
         android:title="Login" />
+    <item
+        android:id="@+id/addlogsFragment"
+        android:title="Add Logs" />
+    <item
+        android:id="@+id/viewlogFragment"
+        android:title="View Logs" />
+    <item
+        android:id="@+id/bmiFragment"
+        android:title="BMI" />
+    <item
+        android:id="@+id/welcomeFragment"
+        android:title="Logout" />
+
 </menu>

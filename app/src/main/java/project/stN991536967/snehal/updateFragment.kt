@@ -6,73 +6,57 @@ import android.os.Bundle
 import android.text.format.DateFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import project.stN991536967.snehal.Entity.ExerciseEntity
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
-import com.google.android.material.navigation.NavigationView
 import project.stN991536967.snehal.Database.fitDatabase
+import project.stN991536967.snehal.Entity.ExerciseEntity
 import project.stN991536967.snehal.databinding.FragmentAddlogsBinding
+import project.stN991536967.snehal.databinding.FragmentUpdateBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class addlogsFragment : Fragment() {
-        override fun onCreateView(
+class updateFragment : Fragment() {
+
+
+    override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
         var calender: Calendar = Calendar.getInstance()
-        val binding: FragmentAddlogsBinding = DataBindingUtil.inflate(
+
+        val binding: FragmentUpdateBinding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_addlogs,
+            R.layout.fragment_update,
             container,
             false
         )
 
-            val navigationView = requireActivity().findViewById<NavigationView>(R.id.navbar)
-            val menu = navigationView.menu
-            val target: MenuItem = menu.findItem(R.id.registerFragment)
-            target.setVisible(false)
-            val target2: MenuItem = menu.findItem(R.id.loginFragment)
-            target2.setVisible(false)
-            val first: MenuItem = menu.findItem(R.id.addlogsFragment)
-            first.setVisible(true)
-            val second: MenuItem = menu.findItem(R.id.viewlogFragment)
-            second.setVisible(true)
-            val third: MenuItem = menu.findItem(R.id.bmiFragment)
-            third.setVisible(true)
-            val forth: MenuItem = menu.findItem(R.id.welcomeFragment)
-            forth.setVisible(true)
+        val application = requireNotNull(this.activity).application
+        val exerciseDao = fitDatabase.getInstance(application).exerciseDao()
+        var exerciseID = requireArguments().getLong("exerciseId")
 
+        val exercise: ExerciseEntity = exerciseDao.get(exerciseID.toLong())
 
-            val application = requireNotNull(this.activity).application
-            val exerciseDao = fitDatabase.getInstance(application).exerciseDao()
+            binding.editTextExercise.setText(exercise.exerciseName)
+            binding.description.setText(exercise.description)
+            binding.dateField.setText(exercise.date)
 
-
-
-                binding.btnAdd.setOnClickListener {
-
-                    if(binding.description.text.isEmpty() || binding.editTextExercise.text.isEmpty() || binding.dateField.text.isEmpty())
-                    {
-                        Toast.makeText(view?.context,"Please Enter Valid Information", Toast.LENGTH_SHORT)
-                    }
-
-
-                    else{
-                        val newExercise = ExerciseEntity(0, UserLoginCheck.user.id,binding.editTextExercise.text.toString(),binding.dateField.text.toString(),binding.description.text.toString())
-                        exerciseDao.insert(newExercise)
-                        view?.findNavController()?.navigate(R.id.action_addlogsFragment_to_viewlogFragment)
-                    }
+            binding.btnUpdate.setOnClickListener {
+                if(binding.description.text.isEmpty() || binding.editTextExercise.text.isEmpty() || binding.dateField.text.isEmpty())
+                {
+                    Toast.makeText(view?.context,"Please Enter Valid Information", Toast.LENGTH_SHORT)
                 }
-
-        binding.description.setHint("Enter the Exercise Description")
-
-
+                else{
+                val newExercise = ExerciseEntity(exerciseID.toLong(), UserLoginCheck.user.id,binding.editTextExercise.text.toString(),binding.dateField.text.toString(),binding.description.text.toString())
+                exerciseDao.update(newExercise)
+                view?.findNavController()?.navigate(R.id.action_updateFragment_to_viewlogFragment)
+                }
+            }
 
         binding.dateField.setOnClickListener {
             val mYear = calender.get(Calendar.YEAR)
@@ -117,8 +101,8 @@ class addlogsFragment : Fragment() {
 
 
         return binding.root
+
     }
 
+
 }
-
-
