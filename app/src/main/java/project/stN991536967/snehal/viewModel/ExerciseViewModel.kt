@@ -10,26 +10,26 @@ import project.stN991536967.snehal.UserLoginCheck
 
 class ExerciseViewModel (val exerciseDao: ExerciseDao): ViewModel(){
 
-    fun insert(view: View, date:String, distance:String,speed:String){
+    fun insert(view: View, exerciseName: String,date:String, distance:String,speed:String){
         if(speed!!.isEmpty() || distance!!.isEmpty())
         {
             Toast.makeText(view.context,"Please Enter the Values", Toast.LENGTH_SHORT)
         }
         else
         {
-            val exercise= ExerciseEntity(0,UserLoginCheck.user.id,date,distance.toFloat(),speed.toFloat())
+            val exercise= ExerciseEntity(0,UserLoginCheck.user.id,exerciseName,date,distance.toFloat(),speed.toFloat())
             exerciseDao.insert(exercise)
         }
     }
 
-    fun update(view: View, id:Long,date:String,distance: String,speed: String){
+    fun update(view: View, id:Long,exerciseName:String,date:String,distance: String,speed: String){
         if(speed!!.isEmpty() || distance!!.isEmpty())
         {
             Toast.makeText(view.context,"Please Enter the Values", Toast.LENGTH_SHORT)
         }
         else{
             val exercise= ExerciseEntity(
-                id,UserLoginCheck.user.id,date,distance.toFloat(),
+                id,UserLoginCheck.user.id,exerciseName,date,distance.toFloat(),
                 speed.toFloat()
             )
             exerciseDao.update(exercise)

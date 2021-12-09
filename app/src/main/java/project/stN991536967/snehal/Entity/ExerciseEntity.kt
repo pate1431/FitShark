@@ -10,6 +10,8 @@ data class ExerciseEntity (
     var id: Long,
     @ColumnInfo(name = "userID")
     var userID: Long,
+    @ColumnInfo(name = "Exercise_Name")
+    var exerciseName: String,
     @ColumnInfo(name = "date")
     var date: String,
     @ColumnInfo(name = "distance")
