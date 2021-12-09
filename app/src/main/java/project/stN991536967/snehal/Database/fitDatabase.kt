@@ -10,7 +10,7 @@ import project.stN991536967.snehal.Entity.BMIEntity
 import project.stN991536967.snehal.Entity.ExerciseEntity
 import project.stN991536967.snehal.Entity.LoginEntity
 
-@Database(entities = [BMIEntity::class, ExerciseEntity:: class, LoginEntity::class], version = 5, exportSchema = false)
+@Database(entities = [BMIEntity::class, ExerciseEntity:: class, LoginEntity::class], version = 6, exportSchema = false)
 abstract class fitDatabase  : RoomDatabase(){
     abstract fun loginDao(): LoginDao
     abstract fun exerciseDao(): ExerciseDao

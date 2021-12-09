@@ -13,7 +13,7 @@
     <fragment
         android:id="@+id/loginFragment"
         android:name="project.stN991536967.snehal.loginFragment"
-        android:label="loginFragment">
+        android:label="Login">
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -21,7 +21,7 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="project.stN991536967.snehal.registerFragment"
-        android:label="registerFragment" >
+        android:label="Register">
         <action
             android:id="@+id/action_registerFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
@@ -29,7 +29,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="project.stN991536967.snehal.homeFragment"
-        android:label="homeFragment">
+        android:label="Home">
         <action
             android:id="@+id/action_homeFragment_to_bmiFragment"
             app:destination="@id/bmiFragment"
@@ -49,16 +49,16 @@
             android:id="@+id/action_homeFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment"
             app:popUpTo="@id/homeFragment"
-            app:popUpToInclusive="true" />
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/bmiFragment"
         android:name="project.stN991536967.snehal.bmiFragment"
-        android:label="bmiFragment" />
+        android:label="BMI Calculator" />
     <fragment
         android:id="@+id/addlogsFragment"
         android:name="project.stN991536967.snehal.addlogsFragment"
-        android:label="addlogsFragment">
+        android:label="Add Exercise">
         <action
             android:id="@+id/action_addlogsFragment_to_viewlogFragment"
             app:destination="@id/viewlogFragment"
@@ -68,17 +68,20 @@
     <fragment
         android:id="@+id/viewlogFragment"
         android:name="project.stN991536967.snehal.viewlogFragment"
-        android:label="viewlogFragment">
+        android:label="Exercise">
         <action
             android:id="@+id/action_viewlogFragment_to_addlogsFragment"
             app:destination="@id/addlogsFragment"
             app:popUpTo="@id/addlogsFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_viewlogFragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
     </fragment>
     <fragment
         android:id="@+id/welcomeFragment"
         android:name="project.stN991536967.snehal.welcomeFragment"
-        android:label="welcomeFragment">
+        android:label="Welcome">
         <action
             android:id="@+id/action_welcomeFragment_to_loginFragment"
             app:destination="@id/loginFragment"
@@ -87,5 +90,13 @@
         <action
             android:id="@+id/action_welcomeFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="project.stN991536967.snehal.updateFragment"
+        android:label="updateFragment" >
+        <action
+            android:id="@+id/action_updateFragment_to_viewlogFragment"
+            app:destination="@id/viewlogFragment" />
     </fragment>
 </navigation>

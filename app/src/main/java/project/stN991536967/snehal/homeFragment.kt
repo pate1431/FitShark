@@ -22,18 +22,24 @@ class homeFragment : Fragment() {
             R.layout.fragment_home, container, false
         )
 
-        val navigationView = requireActivity().findViewById<NavigationView>(R.id.navbar)
+        /*val navigationView = requireActivity().findViewById<NavigationView>(R.id.navbar)
         val menu = navigationView.menu
-        val target: MenuItem = menu.findItem(R.id.registerFragment)
-        target.setVisible(true)
-        val target2: MenuItem = menu.findItem(R.id.loginFragment)
-        target2.setVisible(true)
+        val first: MenuItem = menu.findItem(R.id.addlogsFragment)
+        first.setVisible(true)
+        val second: MenuItem = menu.findItem(R.id.viewlogFragment)
+        second.setVisible(true)
+        val Third: MenuItem = menu.findItem(R.id.bmiFragment)
+        Third.setVisible(true)
+        val Forth: MenuItem = menu.findItem(R.id.welcomeFragment)
+        Forth.setVisible(true)*/
 
         binding.btnCalculateBMI.setOnClickListener {
             view?.findNavController()?.navigate(R.id.action_homeFragment_to_bmiFragment)
         }
 
         binding.btnAddLog.setOnClickListener {
+            var bundle = Bundle()
+            bundle.putLong("exerciseId",0)
             view?.findNavController()?.navigate(R.id.action_homeFragment_to_addlogsFragment)
         }
 

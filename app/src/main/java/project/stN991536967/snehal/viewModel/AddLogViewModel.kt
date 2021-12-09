@@ -14,14 +14,14 @@ import project.stN991536967.snehal.UserLoginCheck
 class AddLogViewModel (val runningDao: ExerciseDao): ViewModel(){
 
     //insert
-    fun insert(view: View, exerciseName: String,date:String, distance: String, speed:String){
+    fun insert(view: View, exerciseName: String,date:String, description: String){
 
-        if(distance!!.isEmpty() || speed!!.isEmpty())
+        if(description!!.isEmpty() || exerciseName!!.isEmpty())
         {
             Toast.makeText(view.context,"Please Enter Valid Information", Toast.LENGTH_SHORT)
         }
         else{
-            val newExercise = ExerciseEntity(0, UserLoginCheck.user.id,exerciseName,date,distance.toFloat(),speed.toFloat())
+            val newExercise = ExerciseEntity(0, UserLoginCheck.user.id,exerciseName,date,description)
 
             runningDao.insert(newExercise)
         }
