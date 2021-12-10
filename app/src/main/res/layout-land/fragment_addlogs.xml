@@ -20,7 +20,7 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="15dp"
             android:fontFamily="monospace"
             android:text="Add Exercise"
             android:textAlignment="center"
@@ -54,7 +54,7 @@
             android:layout_width="274dp"
             android:layout_height="60dp"
             android:layout_marginStart="36dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="15dp"
             android:background="#BFBEF4"
             android:ems="10"
             android:hint="Enter the Exercise"
@@ -70,7 +70,7 @@
             android:layout_width="341dp"
             android:layout_height="161dp"
             android:layout_marginStart="31dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="48dp"
             android:background="#BFBEF4"
             android:ems="10"
@@ -88,7 +88,7 @@
             android:layout_width="250sp"
             android:layout_height="60sp"
 
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="15dp"
             android:background="#D3F389"
             android:gravity="center"
             android:text="Add"
@@ -97,7 +97,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.455"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dateField" />
+            app:layout_constraintTop_toBottomOf="@+id/description" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

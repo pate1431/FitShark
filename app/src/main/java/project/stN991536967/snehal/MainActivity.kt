@@ -29,4 +29,8 @@ class MainActivity : AppCompatActivity() {
         val navController = this.findNavController(R.id.NavHostFragment)
         return NavigationUI.navigateUp(navController, drawerLayout)
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+    }
 }

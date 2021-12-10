@@ -20,7 +20,9 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginStart="226dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="180dp"
             android:fontFamily="monospace"
             android:text="Update Exercise"
             android:textAlignment="center"
@@ -28,66 +30,52 @@
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.466"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <Button
-            android:id="@+id/btnUpdate"
-            android:layout_width="250sp"
-            android:layout_height="60sp"
-            android:layout_marginTop="520dp"
-
-            android:background="#D3F389"
-            android:text="Update"
-            android:textColor="#FF0000"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/dateField"
-            android:layout_width="270dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="212dp"
-            android:background="#BFBEF4"
+            android:layout_width="266dp"
+            android:layout_height="62dp"
 
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="32dp"
+            android:background="#BFBEF4"
             android:ems="10"
             android:fontFamily="monospace"
             android:hint="Date"
             android:inputType="date"
             android:textColorHint="#E91E63"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.448"
+            app:layout_constraintEnd_toStartOf="@+id/description"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editTextExercise"
             tools:ignore="TextContrastCheck" />
 
         <EditText
             android:id="@+id/editTextExercise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="79dp"
-            android:layout_marginTop="56dp"
-            android:layout_marginEnd="122dp"
+            android:layout_width="263dp"
+            android:layout_height="62dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="35dp"
             android:background="#BFBEF4"
             android:ems="10"
             android:hint="Enter the Exercise"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:textColorHint="#E91E63"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toStartOf="@+id/description"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3"
             tools:ignore="TextContrastCheck" />
 
         <EditText
             android:id="@+id/description"
-            android:layout_width="338dp"
-            android:layout_height="210dp"
+            android:layout_width="355dp"
+            android:layout_height="141dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="46dp"
             android:background="#BFBEF4"
             android:ems="10"
             android:gravity="start|top"
@@ -97,9 +85,25 @@
             android:textColorHint="#E91E63"
             app:layout_constraintBottom_toTopOf="@+id/btnAdd"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/dateField"
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
             tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
+
+        <Button
+            android:id="@+id/btnUpdate"
+            android:layout_width="250sp"
+            android:layout_height="60sp"
+
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="114dp"
+            android:background="#D3F389"
+            android:text="Update"
+            android:textColor="#FF0000"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
