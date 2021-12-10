@@ -15,6 +15,8 @@ import project.stN991536967.snehal.databinding.FragmentBmiBinding
 
 class bmiFragment : Fragment() {
 
+    // ankdjna
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                                         savedInstanceState: Bundle?): View? {
         var binding = DataBindingUtil.inflate<FragmentBmiBinding>(inflater,
