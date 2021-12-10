@@ -51,17 +51,17 @@ class bmiFragment : Fragment() {
                 result = ((weight/height/height * 10000).toDouble())
 
                 if(result<18.5){
-                    binding.textBmi.text = "Your BMI: %.2f".format(result)
-                    binding.textHealth.text = "Underweight"
+                    binding.textBmi!!.text = "Your BMI: %.2f".format(result)
+                    binding.textHealth!!.text = "Underweight"
                 }else if(result in 18.5..24.9){
-                    binding.textBmi.text = "Your BMI: %.2f".format(result)
-                    binding.textHealth.text = "Normal Weight"
+                    binding.textBmi!!.text = "Your BMI: %.2f".format(result)
+                    binding.textHealth!!.text = "Normal Weight"
                 }else if(result in 25.0..29.9){
-                    binding.textBmi.text = "Your BMI: %.2f".format(result)
-                    binding.textHealth.text = "Overweight"
+                    binding.textBmi!!.text = "Your BMI: %.2f".format(result)
+                    binding.textHealth!!.text = "Overweight"
                 }else if(result > 30){
-                    binding.textBmi.text = "Your BMI: %.2f".format(result)
-                    binding.textHealth.text = "Obesity"
+                    binding.textBmi!!.text = "Your BMI: %.2f".format(result)
+                    binding.textHealth!!.text = "Obesity"
                 }
                 binding.result.setText("BMI : \n Normal Weight = 19 - 25 \n Underweight = less than 19 \n" +
                         "Overweight is greater than 25")

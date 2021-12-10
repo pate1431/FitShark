@@ -25,9 +25,11 @@
         android:visible="false" />
     <item
         android:id="@+id/bmiFragment"
-        android:title="BMI" />
+        android:title="BMI"
+        android:visible="false" />
     <item
         android:id="@+id/welcomeFragment"
-        android:title="Logout" />
+        android:title="Logout"
+        android:visible="false" />
 
 </menu>

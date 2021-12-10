@@ -3,22 +3,39 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/List.xml" value="0.4" />
         <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/activity_main.xml" value="0.1703125" />
-        <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/excercise_list.xml" value="0.4" />
-        <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/fragment_about.xml" value="0.245018115942029" />
         <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/fragment_addlogs.xml" value="0.25" />
-        <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/fragment_bmi.xml" value="0.264" />
-        <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/fragment_help.xml" value="0.245018115942029" />
-        <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/fragment_bmi.xml" value="0.2" />
+        <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/fragment_home.xml" value="0.225" />
         <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/fragment_login.xml" value="0.1703125" />
         <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/fragment_register.xml" value="0.2341485507246377" />
-        <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/fragment_update.xml" value="0.25364583333333335" />
         <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/fragment_viewlog.xml" value="0.2" />
         <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/fragment_welcome.xml" value="0.25" />
-        <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/layout/list_view.xml" value="0.2604166666666667" />
         <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/menu/navbar.xml" value="0.225" />
         <entry key="..\:/College/SEM 5/AD/Projects/FitShark_FinalProject/app/src/main/res/menu/options.xml" value="0.225" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout-land/fagment__addlogs.xml" value="0.14858906525573193" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout-land/fragmen_viewlog.xml" value="0.14858906525573193" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout-land/fragment_about.xml" value="0.14858906525573193" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout-land/fragment_addlogs.xml" value="0.14858906525573193" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout-land/fragment_bmi.xml" value="0.14858906525573193" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout-land/fragment_help.xml" value="0.14858906525573193" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout-land/fragment_home.xml" value="0.14858906525573193" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout-land/fragment_login.xml" value="0.14858906525573193" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout-land/fragment_register.xml" value="0.14858906525573193" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout-land/fragment_update.xml" value="0.14858906525573193" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout-land/fragment_viewlog.xml" value="0.14858906525573193" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout-land/fragment_welcome.xml" value="0.14858906525573193" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout/fragment_about.xml" value="0.2" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout/fragment_addlogs.xml" value="0.13405797101449277" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout/fragment_bmi.xml" value="0.132" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout/fragment_help.xml" value="0.13405797101449277" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout/fragment_home.xml" value="0.13405797101449277" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout/fragment_login.xml" value="0.13405797101449277" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout/fragment_register.xml" value="0.4" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout/fragment_update.xml" value="0.44000000000000006" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout/fragment_viewlog.xml" value="0.132" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/layout/fragment_welcome.xml" value="0.3" />
+        <entry key="..\:/Semesters/Sem6_Workspace/FitShark/app/src/main/res/menu/navbar.xml" value="0.2" />
       </map>
     </option>
   </component>

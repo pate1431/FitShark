@@ -13,7 +13,6 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#8579747A"
         app:layout_constraintBottom_toBottomOf="@+id/input3"
         app:layout_constraintTop_toBottomOf="@+id/input3">
 
@@ -25,7 +24,7 @@
             android:fontFamily="monospace"
             android:text="Add Exercise"
             android:textAlignment="center"
-            android:textColor="#000000"
+            android:textColor="#FF9800"
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -39,10 +38,10 @@
             android:layout_height="60sp"
             android:layout_marginTop="520dp"
 
-            android:background="@color/black"
-            android:backgroundTint="@color/black"
+            android:background="#D3F389"
+            android:gravity="center"
             android:text="Add"
-            android:textColor="@color/white"
+            android:textColor="#FF0000"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.503"
@@ -54,45 +53,53 @@
             android:layout_width="270dp"
             android:layout_height="52dp"
             android:layout_marginTop="212dp"
-            android:ems="10"
+            android:background="#BFBEF4"
 
+            android:ems="10"
             android:fontFamily="monospace"
             android:hint="Date"
             android:inputType="date"
+            android:textColorHint="#E91E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.448"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="TextContrastCheck" />
 
         <EditText
             android:id="@+id/editTextExercise"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="254dp"
+            android:layout_height="49dp"
             android:layout_marginStart="79dp"
             android:layout_marginTop="56dp"
             android:layout_marginEnd="122dp"
+            android:background="#BFBEF4"
             android:ems="10"
             android:hint="Enter the Exercise"
             android:inputType="textPersonName"
             android:minHeight="48dp"
+            android:textColorHint="#E91E63"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/textView3"
+            tools:ignore="TextContrastCheck" />
 
         <EditText
             android:id="@+id/description"
             android:layout_width="338dp"
             android:layout_height="210dp"
+            android:background="#BFBEF4"
             android:ems="10"
             android:gravity="start|top"
             android:hint="exercise"
             android:inputType="textMultiLine"
+            android:textColorHint="#E91E63"
             app:layout_constraintBottom_toTopOf="@+id/btnAdd"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/dateField"
-            tools:ignore="SpeakableTextPresentCheck" />
+            tools:ignore="SpeakableTextPresentCheck,TextContrastCheck" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
